@@ -3,25 +3,103 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="moment-with-locales.min.js"></script>
+    <script src="javascript.js"></script> 
+    <link rel="stylesheet" type = "text/css" href="stylesheet.css">
+    <title>Twittler</title>
   </head>
   <body>
-    <script>
-
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
-
-      });
-
-    </script>
+    <div class="topbar">
+      <div class="topbar-container">
+          <div class="nav">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Moments</a></li>
+              <li><a href="#">Notifications</a></li>
+              <li><a href="#">Messaages</a></li>
+            </ul>
+          </div>
+          <div class="icon">
+             <a href="#"><img src="img/twitter-icon-192x192.png" alt="twitter icon"/></a>
+          </div>
+          <div class="refresh">
+            <button id="refresh">Get Tweets</button>
+          </div>
+      </div>
+      </div>
+    </div>
+    <div class="page-container">
+      <div class="dashboard">
+        <div class="profileCard card">
+          <a class="dashboard-profileCard-bg" href="#" tabindex="-1" aria-hidden="true"></a>
+          <div class="dashbord-profileCard-content">
+            <div class="dashbord-profileCard-content-myinfo">
+              <a id="myName" href="#">Ai Shi</a>
+              <a id="myEmail" href="#">@shiai8901</a>
+            </div>
+            <ul class="dashbord-profileCard-content-data">
+              <li class="data">
+                <a href="#"><span class="data-card-title">TWEETS</span><br><span class="data-card-number">0</span></a>
+              </li>
+              <li class="data">
+                <a href="#"><span class="data-card-title">FOLLOWING</span><br><span class="data-card-number">1</span></a>
+              </li>
+              <li class="data">
+                <a href="#"><span class="data-card-title">FOLLOWER</span><br><span class="data-card-number">1</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="trends card">
+          <div class="inner-container">
+          <h2>Trends</h2>
+          <ul>
+            <li>
+              <a href="#">
+                <h4 class="trends-topic-content">#TRANSFORMERS</h3>
+                <p class="trends-topic-tweets-number"></p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h4 class="trends-topic-content">#TrumpCabinetBand</h3>
+                <p class="trends-topic-tweets-number">31.7K Tweets</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h4 class="trends-topic-content">#ASU</h3>
+                <p class="trends-topic-tweets-number">3K Tweets</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h4 class="trends-topic-content">#hackreactor</h3>
+                <p class="trends-topic-tweets-number">2K Tweets</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h4 class="trends-topic-content">#coding</h3>
+                <p class="trends-topic-tweets-number">1K Tweets</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+      <div class="main">
+          <div class="addTweet">
+            <div class="addTweetForm">
+              <input type="text" id="myTweet" class="inputTweet" placeholder="What's happening?" onfocus="this.placeholder=''" />
+              <button id="btn-addMyTweet">Tweet!</button>
+            </div>
+          </div>
+          <div class="tweets">
+            <ul>
+            </ul>
+          </div>
+      </div>
+    </div>
   </body>
 </html>
